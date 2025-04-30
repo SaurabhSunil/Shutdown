@@ -11,4 +11,4 @@ This does not write "Stopping my Application..." to the console when using `mcr.
 
 ## Expected behavior 
 
-TWrites  "Stopping my Application..." to the console.
+Writes  "Stopping my Application..." to the console.
