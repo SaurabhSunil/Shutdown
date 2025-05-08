@@ -9,17 +9,19 @@ namespace Shutdown
         }
 
         /// <inheritdoc />
-        public Task StartAsync(CancellationToken cancellationToken)
+        public async Task StartAsync(CancellationToken cancellationToken)
         {
             Console.WriteLine("Starting my Application...");
-            return Task.CompletedTask;
+            await Task.Delay(1000, cancellationToken);
+            Console.WriteLine("Started my Application...");
         }
 
         /// <inheritdoc />
-        public Task StopAsync(CancellationToken cancellationToken)
+        public async Task StopAsync(CancellationToken cancellationToken)
         {
-            Console.WriteLine("Stopping my Application...");
-            return Task.CompletedTask;
+            Console.WriteLine("Stopping my Application Started...");
+            await Task.Delay(5000, cancellationToken);
+            Console.WriteLine("Stopped my Application...");
         }
     }
 }

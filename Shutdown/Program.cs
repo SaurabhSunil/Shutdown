@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Shutdown;
+using System.Runtime.InteropServices;
 
 var host = Host.CreateDefaultBuilder(args)
     .ConfigureServices(services =>
@@ -8,14 +9,16 @@ var host = Host.CreateDefaultBuilder(args)
         services.AddHostedService<HostedService>();
         services.Configure<HostOptions>(options =>
         {
-            // Set the timeout for graceful shutdown to 10 seconds
-            options.ShutdownTimeout = TimeSpan.FromSeconds(30);
-
             options.ServicesStopConcurrently = true;
-            //options.ServicesStartConcurrently = true;
-            //options.ServicesStopConcurrently = true;
         });
     })
     .Build();
+
+using var registration = PosixSignalRegistration.Create(PosixSignal.SIGTERM, context =>
+{
+    context.Cancel = true;
+    Console.WriteLine("SIGTERM");
+    host.StopAsync().GetAwaiter().GetResult();
+});
 
 await host.RunAsync();
