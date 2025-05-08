@@ -2,7 +2,7 @@
 
 
 # Windows server core does not shut down gracefully
-FROM mcr.microsoft.com/dotnet/runtime:8.0-windowsservercore-ltsc2019 AS base  
+FROM mcr.microsoft.com/dotnet/runtime:8.0 AS base  
 
 # nano-server does shut down gracefully
 # FROM mcr.microsoft.com/dotnet/runtime:8.0-nanoserver-1809 AS base  

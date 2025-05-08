@@ -4,10 +4,10 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>
-	<Platforms>AnyCPU;x64</Platforms>
-	<IsEntryPoint>true</IsEntryPoint>
-	<OutputType>Exe</OutputType>
+    <DockerDefaultTargetOS>linux</DockerDefaultTargetOS>
+    <Platforms>AnyCPU;x64</Platforms>
+    <IsEntryPoint>true</IsEntryPoint>
+    <OutputType>Exe</OutputType>
   </PropertyGroup>
 
   <ItemGroup>
